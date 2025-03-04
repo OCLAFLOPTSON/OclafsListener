@@ -44,6 +44,6 @@ def upland_listener(request):
             # Send a response to confirm receipt
             return HttpResponse(status=200)
         except JSONDecodeError:
-            return JsonResponse({"status": "error", "message": "Invalid JSON"}, status=400)
+            return HttpResponse(status=400)
     else:
         return JsonResponse({"status": "error", "message": "Invalid request method"}, status=405)
