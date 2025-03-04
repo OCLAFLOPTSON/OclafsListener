@@ -3,8 +3,9 @@ from django.http import JsonResponse
 from json import loads, JSONDecodeError
 from .models import Log
 from datetime import datetime
-from django.utils import timezone
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 def upland_listener(request):
     if request.method == 'POST':
         try:
