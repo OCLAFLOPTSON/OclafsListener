@@ -1,9 +1,11 @@
+import http.server
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 from json import loads, JSONDecodeError
 from .models import Log
 from datetime import datetime
 from django.views.decorators.csrf import csrf_exempt
+from httplib2 import Response
 
 @csrf_exempt
 def upland_listener(request):
@@ -42,7 +44,8 @@ def upland_listener(request):
                 )
             Log.save()
             # Send a response to confirm receipt
-            return HttpResponse(content='', status=200)
+            print(Response(status=200))
+            return Response(status=200)
         except JSONDecodeError:
             return HttpResponse(status=400)
     else:
