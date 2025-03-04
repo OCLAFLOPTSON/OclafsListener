@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 # from .views import upland_listener
-from ..listener import upland_listener
+from listener.views import upland_listener
 
 urlpatterns = [
     path('admin/', admin.site.urls),
