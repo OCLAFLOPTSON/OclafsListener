@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from django.http import JsonResponse
 from json import loads, JSONDecodeError
 from .models import Log
@@ -42,7 +42,7 @@ def upland_listener(request):
                 )
             Log.save()
             # Send a response to confirm receipt
-            return JsonResponse(status=200)
+            return HttpResponse(status=200)
         except JSONDecodeError:
             return JsonResponse({"status": "error", "message": "Invalid JSON"}, status=400)
     else:
