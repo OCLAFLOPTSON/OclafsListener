@@ -42,7 +42,7 @@ def upland_listener(request):
                 )
             Log.save()
             # Send a response to confirm receipt
-            return JsonResponse()
+            return JsonResponse(status=200)
         except JSONDecodeError:
             return JsonResponse({"status": "error", "message": "Invalid JSON"}, status=400)
     else:
