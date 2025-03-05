@@ -42,7 +42,9 @@ def upland_listener(request):
                     access_token='None',
                     message='This was generated when a player disconnected their account.'
                 )
-            # Log.save()
+            else:
+                pass
+            # Log.save() THIS FUCKED ME UP
             # Send a response to confirm receipt
             return HttpResponse(status=200)
         except JSONDecodeError:
