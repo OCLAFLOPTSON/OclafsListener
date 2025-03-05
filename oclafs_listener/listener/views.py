@@ -13,6 +13,10 @@ def upland_listener(request):
         try:
             data = loads(request.body)
             print("Webhook received:", data)
+            try:
+                data['type']
+            except Exception:
+                data['type'] = 'other'
             
             # Process the data here (e.g., save OTP, validate user, etc.)
             if data['type'] == "AuthenticationSuccess":
