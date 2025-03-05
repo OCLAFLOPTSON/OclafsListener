@@ -46,7 +46,7 @@ def upland_listener(request):
             # Send a response to confirm receipt
             response = HTTPResponse(status=200)
             print(response)
-            return response
+            return {"status": 200}
         except JSONDecodeError:
             return HttpResponse(status=400)
     else:
